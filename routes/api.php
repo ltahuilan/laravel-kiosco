@@ -20,12 +20,11 @@ Route::middleware('auth:sanctum')->group(function () {
     //rutas que requieren autenticación
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::resource('/pedidos', PedidoController::class);
+    Route::resource('/productos', ProductoController::class);
+    Route::get('/categorias', [CategoriaController::class, 'index']);
 });
 
 Route::get('/logout', [AuthController::class, 'logout']);
-
-Route::get('/categorias', [CategoriaController::class, 'index']);
-Route::get('/productos', [ProductoController::class, 'index']);
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
